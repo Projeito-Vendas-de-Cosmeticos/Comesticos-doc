@@ -4,7 +4,7 @@ Sistema de informação de Controle de Compra e Venda de Cosméticos para revend
 
 ## Documentos
 
-* [Documento de Visão](link)
+* [Documento de Visão](Documetos/Documento_visao.md)
 
 ## Como executar o projeto
 
