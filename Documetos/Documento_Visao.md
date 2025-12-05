@@ -7,3 +7,4 @@ Documento construído à parte do **Documento de requisitos do sistema: Controle
 Este projeto trata-se de um sistema de informação de controle de compra e venda de cosméticos para revendedores autônomos que busca automatizar as vendas dos produtos disponíveis, proporcionando uma gestão eficiente e automatizando o gerenciamento de clientes, produtos, vendas e estoque.
 
 ## Requisitos Funcionais
+| Código | Descrição do requisito |
