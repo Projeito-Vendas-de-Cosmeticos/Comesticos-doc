@@ -25,93 +25,93 @@ Este projeto trata-se de um sistema de informação de controle de compra e vend
 
 ### RF01 – Cadastro de Produtos
 
-| Código    | Descrição                                                                 |
-|-----------|---------------------------------------------------------------------------|
-| TA01.01   | Cadastro de produtos bem-sucedido com todos os dados preenchidos.         |
-| TA01.02   | Tentativa de cadastro com campos vazios deve retornar erro.               |
-| TA01.03   | Tentativa de cadastro com código de produto duplicado deve retornar erro. |
-| TA01.04   | Exibe mensagem de confirmação após o cadastro ser concluído.              |
+| Código    | Descrição                                                                                                       |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| TA01.01   | Cadastro de produtos bem-sucedidos com todos os dados preenchidos.                                              |
+| TA01.02   | Tentativa de cadastro com campos vazios retorna erro.                                                           |
+| TA01.03   | Tentativa de cadastro com código do produto duplicado retorna erro.                                             |
+| TA01.04   | Exibe uma mensagem de confirmação após o cadastro ser concluído.                                                |
 
 ### RF02 – Cadastro de Marcas
 
-| Código    | Descrição                                                                 |
-|-----------|---------------------------------------------------------------------------|
-| TA02.01   | Cadastro de marcas bem-sucedido com todos os dados preenchidos.           |
-| TA02.02   | Tentativa de cadastro com campos vazios deve retornar erro.               |
-| TA02.03   | Tentativa de cadastro com CNPJ da marca duplicado deve retornar erro.     |
-| TA02.04   | Exibe mensagem de confirmação após o cadastro ser concluído.              |
+| Código    | Descrição                                                                                                       |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| TA02.01   | Cadastro de marcas bem-sucedidas com todos os dados preenchidos.                                                |
+| TA02.02   | Tentativa de cadastro com campos vazios retorna erro.                                                           |
+| TA02.03   | Tentativa de cadastro com CNPJ da marca duplicada retorna erro.                                                 |
+| TA02.04   | Exibe uma mensagem de confirmação após o cadastro ser concluído.                                                |
 
 ### RF03 – Cadastro de Vendas
 
-| Código    | Descrição                                                                 |
-|-----------|---------------------------------------------------------------------------|
-| TA03.01   | Cadastro de vendas bem-sucedido com todos os dados preenchidos.           |
-| TA03.02   | Tentativa de cadastro com campos vazios deve retornar erro.               |
-| TA03.03   | Tentativa de cadastro com ID da venda duplicado deve retornar erro.       |
-| TA03.04   | Exibe mensagem de confirmação após o cadastro ser concluído.              |
+| Código    | Descrição                                                                                                       |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| TA03.01   | Cadastro de vendas bem-sucedidas com todos os dados preenchidos.                                                |
+| TA03.02   | Tentativa de cadastro com campos vazios retorna erro.                                                           |
+| TA03.03   | Tentativa de cadastro com id da venda duplicada retorna erro.                                                   |
+| TA03.04   | Exibe uma mensagem de confirmação após o cadastro ser concluído.                                                |
 
 ### RF04 - Cadastro de clientes
 
-| Código    | Descrição                                                                 |
-|-----------|---------------------------------------------------------------------------|
-| TA04.01   | Cadastro de clientes bem-sucedido com todos os dados preenchidos.         |
-| TA04.02   | Tentativa de cadastro com campos vazios deve retornar erro.               |
-| TA04.03   | Tentativa de cadastro com CPF duplicado deve retornar erro.               |
-| TA04.04   | Tentativa de cadastro com CPF inválido deve retornar erro.                |
-| TA04.05   | Exibe mensagem de confirmação após o cadastro ser concluído.              |
+| Código    | Descrição                                                                                                       |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| TA04.01   | Cadastro de clientes bem-sucedidos com todos os dados preenchidos.                                              |
+| TA04.02   | Tentativa com campos vazios retorna erro.                                                                       |
+| TA04.03   | Tentativa de cadastro com CPF do cliente duplicado retorna erro.                                                |
+| TA04.04   | Tentativa de cadastro com CPF do cliente inválido retorna erro.                                                 |
+| TA04.05   | Exibe uma mensagem de confirmação após o cadastro ser concluído.                                                |
 
 ### RF05 - Realizar compra de mercadorias
 
-| Código    | Descrição                                                                                            |
-|-----------|------------------------------------------------------------------------------------------------------|
-| TA05.01   | Realização de compras bem-sucedida com todos os dados preenchidos.                                   |
-| TA05.02   | Tentativa de realizar compra com campos vazios deve retornar erro.                                   |
-| TA05.03   | Tentativa de compra de mercadoria sem estoque deve informar a quantidade disponível.                 |
-| TA05.04   | Exibe uma mensagem de confirmação após a realização da compra ser concluída.                         |
+| Código    | Descrição                                                                                                       |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| TA05.01   | Realização de compras bem-sucedidas com todos os dados preenchidos.                                             |
+| TA05.02   | Tentativa com campos vazios retorna erro.                                                                       |
+| TA05.03   | Tentativa de compra de mercadoria com estoque, o sistema informa a quantidade em estoque.                       |
+| TA05.04   | Exibe uma mensagem de confirmação após a realização ser concluída.                                              |
 
 ### RF06 - Manter o estoque atualizando
 
-| Código    | Descrição                                                                                  |
-|-----------|--------------------------------------------------------------------------------------------|
-| TA06.01   | Atualização do estoque bem-sucedida com todos os dados preenchidos.                        |
-| TA06.02   | Tentativa de atualização com campos vazios deve retornar erro.                             |
-| TA06.03   | O sistema não deve permitir ações que resultem na desatualização do estoque.               |
-| TA06.04   | Exibe uma mensagem de confirmação após a atualização do estoque ser concluída.             |
+| Código    | Descrição                                                                                                       |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| TA06.01   | Realização do estoque bem-sucedido com todos os dados atualizados.                                              |
+| TA06.02   | Tentativa com campos vazios retorna erro.                                                                       |
+| TA06.03   | Não permite a desatualização do estoque.                                                                        |
+| TA06.04   | Exibe uma mensagem de confirmação após a realização ser concluída.                                              |
 
 ### RF07 - Controle de compras
 
-| Código    | Descrição                                                                                           |
-|-----------|-----------------------------------------------------------------------------------------------------|
-| TA07.01   | Controle das compras realizado com sucesso com todos os dados atualizados.                          |
-| TA07.02   | Tentativa de controle com campos vazios deve retornar erro.                                         |
-| TA07.03   | O sistema não deve permitir ações que resultem na desatualização dos registros de compras.          |
-| TA07.04   | Exibe uma mensagem de confirmação após a operação ser concluída.                                    |
+| Código    | Descrição                                                                                                       |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| TA07.01   | Realização do controle das compras bem-sucedidas com todos os dados atualizados.                                |
+| TA07.02   | Tentativa com campos vazios retorna erro.                                                                       |
+| TA07.03   | Não permite a desatualização das compras.                                                                       |
+| TA07.04   | Exibe uma mensagem de confirmação após a realização ser concluída.                                              |
 
 ### RF08 – Controle de Vendas
 
-| Código    | Descrição                                                                                           |
-|-----------|-----------------------------------------------------------------------------------------------------|
-| TA08.01   | Controle das vendas realizado com sucesso com todos os dados atualizados.                           |
-| TA08.02   | Tentativa de operação com campos vazios deve retornar erro.                                         |
-| TA08.03   | O sistema não deve permitir ações que resultem na desatualização dos registros de vendas.           |
-| TA08.04   | Exibe uma mensagem de confirmação após a operação ser concluída.                                    |
-| TA08.05   | Tentativa de venda sem estoque deve retornar erro.                                                  |
-| TA08.06   | Tentativa de venda para clientes com débitos pendentes deve retornar erro.                          |
+| Código    | Descrição                                                                                                       |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| TA08.01   | Realização do controle das vendas bem-sucedidas com todos os dados atualizados.                                 |
+| TA08.02   | Tentativa com campos vazios retorna erro.                                                                       |
+| TA08.03   | Não permite a desatualização das vendas.                                                                        |
+| TA08.04   | Exibe uma mensagem de confirmação após a realização ser concluída.                                              |
+| TA08.05   | Tentativa de venda sem estoque retorna erro.                                                                    |
+| TA08.06   | Tentativa de venda para clientes com débitos pendentes retorna erro.                                            |
 
 ### RF09 – Controle de Produtos (Estoque)
 
-| Código    | Descrição                                                                                           |
-|-----------|-----------------------------------------------------------------------------------------------------|
-| TA09.01   | Controle dos produtos realizado com sucesso com todos os dados atualizados.                         |
-| TA09.02   | Tentativa de operação com campos vazios deve retornar erro.                                         |
-| TA09.03   | O sistema não deve permitir ações que resultem na desatualização dos registros de produtos.         |
-| TA09.04   | Exibe uma mensagem de confirmação após a operação ser concluída.                                    |
+| Código    | Descrição                                                                                                       |
+|-----------|-----------------------------------------------------------------------------------------------------------------|
+| TA09.01   | Realização do controle dos produtos bem-sucedidos com todos os dados atualizados.                               |
+| TA09.02   | Tentativa com campos vazios retorna erro.                                                                       |
+| TA09.03   | Não permite a desatualização dos produtos.                                                                      |
+| TA09.04   | Exibe uma mensagem de confirmação após a operação ser concluída.                                                |
 
 ### RF10 – Gerar Relatórios
 
 | Código    | Descrição                                                                                                       |
 |-----------|-----------------------------------------------------------------------------------------------------------------|
-| TA10.01   | Geração de relatórios de produtos, marcas, vendas e clientes bem-sucedida com todos os dados atualizados.       |
-| TA10.02   | Tentativa de gerar relatório com campos vazios deve retornar erro.                                              |
-| TA10.03   | O sistema não deve permitir ações que resultem na desatualização dos relatórios.                                |
-| TA10.04   | Exibe uma mensagem de confirmação após a geração do relatório ser concluída.                                    |
+| TA10.01   | Realização de relatórios de produtos, marcas, vendas e clientes bem-sucedidos com todos os dados atualizados.   |
+| TA10.02   | Tentativa com campos vazios retorna erro.                                                                       |
+| TA10.03   | Não permite a desatualização dos relatórios de produtos, marcas, vendas e clientes.                             |
+| TA10.04   | Exibe uma mensagem de confirmação após a realização ser concluída.                                              |
