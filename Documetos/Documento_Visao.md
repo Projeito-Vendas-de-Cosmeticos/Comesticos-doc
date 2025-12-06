@@ -20,3 +20,15 @@ Este projeto trata-se de um sistema de informação de controle de compra e vend
 | RF08   | Controle de vendas                 | Essencial  | 29h            |            |                   | Vitória Geovanna |               |         |          |
 | RF09   | Controle de produtos               | Essencial  | 29h            |            |                   | Vitória Geovanna |               |         |          |
 | RF10   | Geração de relatórios              | Desejável  | 15h            |            |                   | Vitória Geovanna |               |         |          |
+
+## Testes de Aceitação
+
+### RF01 – Cadastro de Produtos
+
+| Código    | Descrição                                                                 |
+|-----------|---------------------------------------------------------------------------|
+| TA01.01   | Cadastro de produtos bem-sucedido com todos os dados preenchidos.         |
+| TA01.02   | Tentativa de cadastro com campos vazios deve retornar erro.               |
+| TA01.03   | Tentativa de cadastro com código de produto duplicado deve retornar erro. |
+| TA01.04   | Exibe mensagem de confirmação após o cadastro ser concluído.              |
+
