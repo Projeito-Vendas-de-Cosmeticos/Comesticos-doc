@@ -32,3 +32,11 @@ Este projeto trata-se de um sistema de informação de controle de compra e vend
 | TA01.03   | Tentativa de cadastro com código de produto duplicado deve retornar erro. |
 | TA01.04   | Exibe mensagem de confirmação após o cadastro ser concluído.              |
 
+### RF02 – Cadastro de Marcas
+
+| Código    | Descrição                                                                 |
+|-----------|---------------------------------------------------------------------------|
+| TA02.01   | Cadastro de marcas bem-sucedido com todos os dados preenchidos.           |
+| TA02.02   | Tentativa de cadastro com campos vazios deve retornar erro.               |
+| TA02.03   | Tentativa de cadastro com CNPJ da marca duplicado deve retornar erro.     |
+| TA02.04   | Exibe mensagem de confirmação após o cadastro ser concluído.              |
