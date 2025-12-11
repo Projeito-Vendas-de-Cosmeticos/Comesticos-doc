@@ -6,6 +6,97 @@ Documento construído à parte do **Documento de requisitos do sistema: Controle
 
 Este projeto trata-se de um sistema de informação de controle de compra e venda de cosméticos para revendedores autônomos que busca automatizar as vendas dos produtos disponíveis, proporcionando uma gestão eficiente e automatizando o gerenciamento de clientes, produtos, vendas e estoque.
 
+## Diagrama de class
+
+classDiagram
+
+class Cliente {
+  +int codigo
+  +char nome
+  +int cpf
+  +int telefone
+  +char email
+  +Endereco end
+  +cadastrar_cliente(c: Cliente) void
+  +excluir_cliente(c: Cliente) void
+  +alterar_cliente(c: Cliente) void
+  +consultar_cliente(cpf: char) void
+}
+
+class Venda {
+  +int codigo_venda
+  +date data_venda
+  +realizar_venda(v: Venda) void
+  +excluir_venda(v: Venda) void
+  +alterar_venda(v: Venda) void
+  +consultar_venda(codigo_venda: int) void
+  +finalizar_venda(v: Venda) void
+}
+
+class ItensVenda {
+  +int quantidade_produto
+  +double preco_total
+  +cadastrar_item(i: ItensVenda) void
+  +excluir_item(i: ItensVenda) void
+  +alterar_item(i: ItensVenda) void
+  +consultar_item(cod_venda: int) void
+}
+
+class Produto {
+  +int codigo_produto
+  +char nome_produto
+  +date validade_produto
+  +double preco_produto
+  +double preco_revenda
+  +cadastrar_produto(p: Produto) void
+  +excluir_produto(p: Produto) void
+  +alterar_produto(p: Produto) void
+  +consultar_produto(codigo_produto: int) void
+}
+
+class Marca {
+  +int codigo_marca
+  +char nome_marca
+  +char cnpj
+  +int telefone
+  +char email
+  +cadastrar_marca(m: Marca) void
+  +excluir_marca(m: Marca) void
+  +alterar_marca(m: Marca) void
+  +consultar_marca(codigo_marca: int) void
+}
+
+class Cobranca {
+  +int codigo_cobranca
+  +double valor_cobranca
+  +date data_cobranca
+  +date data_vencimento
+  +char nome_cliente
+  +gerar_cobranca(v: Venda) void
+  +excluir_cobranca(c: Cobranca) void
+  +alterar_cobranca(c: Cobranca) void
+  +consultar_cobranca(codigo_cobranca: int) void
+}
+
+class Pagamento {
+  +int codigo_pagamento
+  +double preco_pagamento
+  +string forma_pagamento
+  +date data_pagamento
+  +registrar_pagamento(p: Pagamento) void
+  +excluir_pagamento(p: Pagamento) void
+  +alterar_pagamento(p: Pagamento) void
+  +consultar_pagamento(codigo_pagamento: int) void
+}
+
+Cliente --> Venda : "1..*"
+Venda --> ItensVenda : "1..*"
+ItensVenda --> Produto : "1..*"
+Produto --> Marca : "1"
+Venda --> Pagamento : "1"
+Venda --> Cobranca : "1"
+
+
 ## Requisitos Funcionais
 
 | Código | Descrição do requisito             | Prioridade | Tempo estimado | Tempo real | Tamanho funcional | Analista         | Desenvolvedor | Revisor | Testador |
