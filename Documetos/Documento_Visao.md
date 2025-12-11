@@ -8,6 +8,71 @@ Este projeto trata-se de um sistema de informação de controle de compra e vend
 
 ## Diagrama de class
 
+erDiagram
+
+    Cliente {
+        int codigo_cliente PK
+        string nome
+        string cpf
+        string endereco
+        string telefone
+        string email
+    }
+
+    Venda {
+        int codigo_venda PK
+        date data_venda
+        float valor_total
+        int codigo_cliente FK
+    }
+
+    ItemVenda {
+        int codigo_item_venda PK
+        int quantidade
+        float valor_unitario
+        int codigo_venda FK
+        int codigo_produto FK
+    }
+
+    Produto {
+        int codigo_produto PK
+        string nome
+        float preco
+        string categoria
+        int quantidade_estoque
+    }
+
+    Mesa {
+        int codigo_mesa PK
+        int numero_mesa
+        int capacidade
+        string localizacao
+    }
+
+    Comanda {
+        int codigo_comanda PK
+        date data_abertura
+        date data_fechamento
+        string status
+        int codigo_mesa FK
+    }
+
+    Pagamento {
+        int codigo_pag PK
+        float valor
+        string tipo_pagamento
+        date data_pagamento
+        int codigo_comanda FK
+    }
+
+    %% RELACIONAMENTOS
+
+    Cliente ||--o{ Venda : "realiza"
+    Venda ||--o{ ItemVenda : "possui"
+    Produto ||--o{ ItemVenda : "vendido em"
+    Mesa ||--o{ Comanda : "usa"
+    Comanda ||--o{ Pagamento : "paga"
+
 ## Requisitos Funcionais
 
 | Código | Descrição do requisito             | Prioridade | Tempo estimado | Tempo real | Tamanho funcional | Analista         | Desenvolvedor | Revisor | Testador |
