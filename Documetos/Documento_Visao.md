@@ -177,38 +177,39 @@ sequenceDiagram
     participant Cobranca as Cobrança
     participant Cliente as Cliente
 
-    rect rgba(255,165,0,0.18)
-        note over Gerente,IU,Cobranca,Cliente: Manter cliente - consultar
+    %% --- Seção principal ---
+    rect Manter cliente - consultar
         Gerente ->> IU: Escolher o cliente e deletar()
-        activate IU
         IU ->> Cliente: excluir_cliente(nome, cpf)
     end
 
+    %% Verificar se cliente existe
     opt Verificar Se o Cliente Já Existe no Sistema
         IU ->> Cliente: consultar_cliente()
         Cliente -->> IU: dados do cliente
     end
 
+    %% Verificar cobrança
     opt Verificar cobrança
-        rect rgba(255,165,0,0.18)
+        rect Verificar cobrança
             IU ->> Cobranca: verificar_cobranca()
             Cobranca -->> IU: status da cobrança
         end
     end
 
+    %% Pagamentos iniciados OU não iniciados
     alt Pagamento iniciado
-        deactivate IU
         IU -->> Gerente: Não foi possível excluir...
     else Pagamentos não iniciados
         loop enquanto houver cobrança
-            rect rgba(255,165,0,0.18)
+            rect Excluir cobrança
                 IU ->> Cobranca: excluir_cobranca()
                 Cobranca -->> IU: cobrança excluída
             end
         end
-        IU -->> Gerente: Cliente excluído com sucesso
-        deactivate IU
     end
+
+    IU -->> Gerente: Cliente excluído com sucesso
 ```
 
 
