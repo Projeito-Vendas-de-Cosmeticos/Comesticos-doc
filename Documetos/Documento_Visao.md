@@ -109,7 +109,7 @@ sequenceDiagram
 
     opt Verificar se o cliente já existe no sistema
         rect rgb(255,230,200)
-            IU ->> IU: Manter cliente - consultar
+             IU: Manter cliente - consultar
         end
     end
 
