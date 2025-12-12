@@ -156,16 +156,16 @@ sequenceDiagram
     participant Cliente as Cliente
 
     Gerente ->> IU: ConsultarCliente()
-
     IU ->> Cliente: consultar_cliente(cpf, nome)
 
-    alt Cliente Existente
+    alt Cliente Existe
         Cliente -->> IU: Informações do Cliente
         IU -->> Gerente: Informações do Cliente
     else Cliente não existe
         Cliente -->> IU: Mensagem de cliente inexistente
         IU -->> Gerente: Mensagem de cliente inexistente
     end
+
 
 
 ## Requisitos Funcionais
