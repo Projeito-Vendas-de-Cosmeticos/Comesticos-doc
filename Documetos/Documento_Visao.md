@@ -97,6 +97,33 @@ classDiagram
     Cobranca "1" --> "1..*" Pagamento 
 ```
 
+## Diagrama de Sequência – Manter cliente – Incluir
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    actor Gerente as "Gerente"
+    participant IU as "Interface com Usuário (Cliente)"
+    participant Cliente as "Cliente"
+
+    opt Verificar se o cliente já existe no sistema
+        rect rgb(255,230,200)
+            IU ->> IU: Manter cliente - consultar
+        end
+    end
+
+    Gerente ->> IU: Cadastrar Cliente()
+
+    IU ->> Cliente: cadastrar_cliente(nome, endereço, telefone, cpf, email)
+
+    alt Campos preenchidos
+        Cliente -->> IU: Cliente cadastrado com sucesso()
+    else Campos não preenchidos
+        Cliente -->> IU: Exibir mensagem de cliente não cadastrado()
+    end
+```
+
 
 ## Requisitos Funcionais
 
