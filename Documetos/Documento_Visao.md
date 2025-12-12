@@ -166,7 +166,7 @@ sequenceDiagram
     end
 ```
 
-# Diagrama de Sequência – Manter cliente – Excluir
+## Diagrama de Sequência – Manter cliente – Excluir
 
 ```mermaid
 sequenceDiagram
@@ -201,6 +201,9 @@ sequenceDiagram
 
     IU -->> Gerente: Cliente excluído com sucesso
 ```
+
+## Diagrama de Sequência - Realizar venda
+
 
 ## Requisitos Funcionais
 
