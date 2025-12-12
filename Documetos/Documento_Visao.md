@@ -168,51 +168,56 @@ sequenceDiagram
 
 # Diagrama de Sequência – Manter cliente – Excluir
 
-```mermaid
 sequenceDiagram
     autonumber
-
+    %% ordem dos participantes igual à imagem
     actor Gerente
     participant IU as Interface com Usuário (Cliente)
     participant Cobranca as Cobrança
     participant Cliente as Cliente
 
-    %% BLOCO: Manter cliente – consultar
-    rect rgba(255, 165, 0, 0.25)
+    %% ---------------------------
+    %% Bloco de referência: "Manter cliente - consultar"
+    rect rgba(255,165,0,0.18)
+        note over Gerente,IU,Cobranca,Cliente: Manter cliente - consultar
         Gerente ->> IU: Escolher o cliente e deletar()
+        activate IU
+        %% chamada de exclusão disparada pela IU
         IU ->> Cliente: excluir_cliente(nome, cpf)
     end
+    %% ---------------------------
 
-    %% Verificar se cliente existe
+    %% Opt: Verificar se o cliente existe (aparece no topo da imagem)
     opt Verificar Se o Cliente Já Existe no Sistema
         IU ->> Cliente: consultar_cliente()
         Cliente -->> IU: dados do cliente
     end
 
-    %% BLOCO: Manter Cobrança – Verificar cobrança
+    %% Opt + bloco: Verificar cobrança (com ref visual)
     opt Verificar cobrança
-        rect rgba(255, 165, 0, 0.25)
+        rect rgba(255,165,0,0.18)
             IU ->> Cobranca: verificar_cobranca()
             Cobranca -->> IU: status da cobrança
         end
     end
 
-    %% Condicional: pagamento iniciado?
-    alt Pagamento iniciado
+    %% Alternativa: se pagamento já iniciado -> não exclui
+    alt [Pagamento iniciado]
+        deactivate IU
         IU -->> Gerente: Não foi possível excluir...
-    else Pagamentos não iniciados
-
-        %% LOOP com bloco “Manter cobrança – Excluir”
+    else [Pagamento não iniciado]
+        %% Loop: enquanto houver cobrança, excluir cobranças (com ref visual dentro do loop)
         loop enquanto houver cobrança
-            rect rgba(255, 165, 0, 0.25)
+            rect rgba(255,165,0,0.18)
                 IU ->> Cobranca: excluir_cobranca()
                 Cobranca -->> IU: cobrança excluída
             end
         end
+        %% após remover cobranças
+        IU -->> Gerente: Cliente excluído com sucesso
+        deactivate IU
     end
 
-    IU -->> Gerente: Cliente excluído com sucesso
-```
 
 
 
