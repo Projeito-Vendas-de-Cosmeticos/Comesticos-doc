@@ -215,6 +215,7 @@ sequenceDiagram
 
 
 
+
 ## Requisitos Funcionais
 
 | Código | Descrição do requisito             | Prioridade | Tempo estimado | Tempo real | Tamanho funcional | Analista         | Desenvolvedor | Revisor | Testador |
