@@ -133,34 +133,35 @@ sequenceDiagram
     participant IU as "Interface com usuário (Cliente)"
     participant Cliente as "Cliente"
 
-    %% Bloco ALT principal
-    alt Alterar Cliente
-
-        %% Bloco OPT + REF com caixa laranja
-        opt Verificar se o Cliente Já Existe no Sistema
-            box "Manter cliente - consultar" #f4a460
-                note right of IU: ref
-                IU -> IU: consulta()
-            end
+    %% --- bloco opt + box (consulta/ref) ---
+    opt [Verificar Se o Cliente Já Existe no Sistema]
+        box "Manter cliente - consultar" #f4a460
+            note over IU: ref
+            IU ->> IU: consultar cliente (interno)
         end
-
-        %% Fluxo principal
-        Gerente ->> IU: 1: Escolher qual informação do cliente alterar()
-        IU ->> Cliente: 1.1: alterar_cliente(cliente)()
-
-        %% Bloco ALT interno (validação)
-        alt Campos válidos
-            Cliente -->> IU: Cliente alterando com sucesso()
-        else Campos inválidos
-            Cliente -->> IU: Exibir mensagem para preencher os campos em branco()
-        end
-
     end
 
-    %% Fim das lifelines
-    destroy Gerente
-    destroy IU
-    destroy Cliente
+    %% --- fluxo principal ---
+    Gerente ->> IU: 1: Escolher qual informação do cliente alterar()
+    activate IU
+    IU ->> Cliente: 1.1: alterar_cliente(cliente)
+    activate Cliente
+
+    %% --- validação com alt (duas alternativas) ---
+    alt [Campos válidos]
+        Cliente -->> IU: Cliente alterado com sucesso()
+        deactivate Cliente
+        deactivate IU
+    else [Campos inválidos]
+        Cliente -->> IU: Exibir mensagem: preencher campos em branco
+        deactivate Cliente
+        deactivate IU
+    end
+
+    %% --- opcional: terminar lifelines visualmente ---
+    note left of Gerente: fim
+    note over Cliente: fim
+
 
 
 
