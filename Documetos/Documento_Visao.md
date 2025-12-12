@@ -8,6 +8,95 @@ Este projeto trata-se de um sistema de informação de controle de compra e vend
 
 ## Diagrama de class
 
+```mermaid
+classDiagram
+    class Cliente {
+        -codigo : int
+        -nome : string
+        -cpf : string
+        -telefone : int
+        -email : string
+        -endereco : string
+        +cadastrar_cliente(c : Cliente) void
+        +excluir_cliente(c : Cliente) void
+        +alterar_cliente(c : Cliente) void
+        +consultar_cliente(cpf : string) void
+    }
+
+    class Venda {
+        -codigo_venda : int
+        -data_venda : date
+        +realizar_venda(v : Venda) void
+        +excluir_venda(v : Venda) void
+        +alterar_venda(v : Venda) void
+        +consultar_venda(codigo_venda : int) void
+        +finalizar_venda(v : Venda) void
+    }
+
+    class ItensVenda {
+        -quantidade_produto : int
+        -preco_total : double
+        +cadastrar_item(i : ItensVenda) void
+        +excluir_item(i : ItensVenda) void
+        +alterar_item(i : ItensVenda) void
+        +consultar_item(cod_venda : int) void
+    }
+
+    class Produto {
+        -codigo_produto : int
+        -nome_produto : string
+        -validade_produto : date
+        -preco_produto : double
+        -preco_revenda : double
+        +cadastrar_produto(p : Produto) void
+        +excluir_produto(p : Produto) void
+        +alterar_produto(p : Produto) void
+        +consultar_produto(codigo_produto : int) void
+    }
+
+    class Marca {
+        -codigo_marca : int
+        -nome_marca : string
+        -cnpj : string
+        -telefone : int
+        -email : string
+        +cadastrar_marca(m : Marca) void
+        +excluir_marca(m : Marca) void
+        +alterar_marca(m : Marca) void
+        +consultar_marca(codigo_marca : int) void
+    }
+
+    class Cobranca {
+        -codigo_cobranca : int
+        -valor_cobranca : double
+        -data_cobranca : date
+        -data_vencimento : date
+        -nome_cliente : string
+        +gerar_cobranca(v : Venda) void
+        +excluir_cobranca(c : Cobranca) void
+        +alterar_cobranca(c : Cobranca) void
+        +consultar_cobranca(codigo_cobranca : int) void
+    }
+
+    class Pagamento {
+        -codigo_pagamento : int
+        -preco_pagamento : double
+        -forma_pagamento : string
+        -data_pagamento : date
+        +registrar_pagamento(p : Pagamento) void
+        +excluir_pagamento(p : Pagamento) void
+        +alterar_pagamento(p : Pagamento) void
+        +consultar_pagamento(codigo_pagamento : int) void
+    }
+
+    Cliente "1" --> "0..*" Venda : realiza
+    Venda "1" --> "1..*" ItensVenda : possui
+    ItensVenda "1" --> "0..1" Produto : refere
+    Produto "1" --> "0..1" Marca : pertence
+    Venda "1" --> "0..1" Cobranca : gera
+    Cobranca "1" --> "1..*" Pagamento : recebe
+```
+
 
 ## Requisitos Funcionais
 
