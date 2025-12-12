@@ -126,13 +126,14 @@ sequenceDiagram
 
 ## Diagrama de Sequência – Manter cliente – Alterar
 
+```mermaid
 sequenceDiagram
     actor Gerente
-    participant IU as Interface com usuário (Cliente)
+    participant IU as Interface com Usuário (Cliente)
     participant Cliente
 
     opt Verificar se o Cliente já existe no sistema
-        IU -> IU: Consultar cliente
+        IU ->> IU: Consultar cliente
     end
 
     Gerente ->> IU: Escolher informação do cliente para alterar()
@@ -143,6 +144,8 @@ sequenceDiagram
     else Campos inválidos
         Cliente -->> IU: Exibir mensagem para preencher campos em branco
     end
+```
+
 
 
 
