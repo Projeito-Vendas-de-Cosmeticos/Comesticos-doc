@@ -177,32 +177,43 @@ sequenceDiagram
     participant Cobranca as Cobrança
     participant Cliente as Cliente
 
-    %% --- Início ---
-    Gerente ->> IU: Escolher o cliente e deletar()
+    %% BLOCO: Manter cliente – consultar
+    rect rgba(255, 165, 0, 0.25)
+        Gerente ->> IU: Escolher o cliente e deletar()
+        IU ->> Cliente: excluir_cliente(nome, cpf)
+    end
 
-    IU ->> Cliente: excluir_cliente(nome, cpf)
-
+    %% Verificar se cliente existe
     opt Verificar Se o Cliente Já Existe no Sistema
         IU ->> Cliente: consultar_cliente()
         Cliente -->> IU: dados do cliente
     end
 
+    %% BLOCO: Manter Cobrança – Verificar cobrança
     opt Verificar cobrança
-        IU ->> Cobranca: verificar_cobranca()
-        Cobranca -->> IU: status da cobrança
+        rect rgba(255, 165, 0, 0.25)
+            IU ->> Cobranca: verificar_cobranca()
+            Cobranca -->> IU: status da cobrança
+        end
     end
 
+    %% Condicional: pagamento iniciado?
     alt Pagamento iniciado
         IU -->> Gerente: Não foi possível excluir...
     else Pagamentos não iniciados
+
+        %% LOOP com bloco “Manter cobrança – Excluir”
         loop enquanto houver cobrança
-            IU ->> Cobranca: excluir_cobranca()
-            Cobranca -->> IU: cobrança excluída
+            rect rgba(255, 165, 0, 0.25)
+                IU ->> Cobranca: excluir_cobranca()
+                Cobranca -->> IU: cobrança excluída
+            end
         end
     end
 
     IU -->> Gerente: Cliente excluído com sucesso
 ```
+
 
 
 ## Requisitos Funcionais
