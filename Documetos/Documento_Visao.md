@@ -91,8 +91,8 @@ classDiagram
 
     Cliente "1" --> "0..*" Venda 
     Venda "1" --> "1..*" ItensVenda 
-    ItensVenda "1" --> "0..1" Produto 
-    Produto "1" --> "0..1" Marca 
+    ItensVenda "0..1" --> "1" Produto 
+    Produto "0..1" --> "1" Marca 
     Venda "1" --> "0..1" Cobranca 
     Cobranca "1" --> "1..*" Pagamento 
 ```
