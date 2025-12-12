@@ -166,7 +166,43 @@ sequenceDiagram
     end
 ```
 
+# Diagrama de Sequência – Manter cliente – Excluir
 
+```mermaid
+sequenceDiagram
+    autonumber
+
+    actor Gerente
+    participant IU as Interface com Usuário (Cliente)
+    participant Cobranca as Cobrança
+    participant Cliente as Cliente
+
+    %% --- Início ---
+    Gerente ->> IU: Escolher o cliente e deletar()
+
+    IU ->> Cliente: excluir_cliente(nome, cpf)
+
+    opt Verificar Se o Cliente Já Existe no Sistema
+        IU ->> Cliente: consultar_cliente()
+        Cliente -->> IU: dados do cliente
+    end
+
+    opt Verificar cobrança
+        IU ->> Cobranca: verificar_cobranca()
+        Cobranca -->> IU: status da cobrança
+    end
+
+    alt Pagamento iniciado
+        IU -->> Gerente: Não foi possível excluir...
+    else Pagamentos não iniciados
+        loop enquanto houver cobrança
+            IU ->> Cobranca: excluir_cobranca()
+            Cobranca -->> IU: cobrança excluída
+        end
+    end
+
+    IU -->> Gerente: Cliente excluído com sucesso
+```
 
 
 ## Requisitos Funcionais
