@@ -103,9 +103,9 @@ classDiagram
 sequenceDiagram
     autonumber
 
-    actor Gerente as "Gerente"
-    participant IU as "Interface com Usuário (Cliente)"
-    participant Cliente as "Cliente"
+    actor Gerente as Gerente
+    participant IU as Interface com Usuário (Cliente)
+    participant Cliente as Cliente
 
     opt Verificar se o cliente já existe no sistema
         rect rgb(255,230,200)
