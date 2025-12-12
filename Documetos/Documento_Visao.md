@@ -124,6 +124,33 @@ sequenceDiagram
     end
 ```
 
+## Diagrama de Sequência – Manter cliente – Alterar
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    actor Gerente as "Gerente"
+    participant IU as "Interface com usuário (Cliente)"
+    participant Cliente as "Cliente"
+
+    alt Verificar se o cliente já existe no sistema
+        rect rgb(255,210,150)
+            IU ->> IU: Manter cliente - consultar
+        end
+    end
+
+    Gerente ->> IU: Escolher qual informação do cliente alterar()
+
+    IU ->> Cliente: alterar_cliente(cliente)
+
+    alt Campos válidos
+        Cliente -->> IU: Cliente alterado com sucesso()
+    else Campos inválidos
+        Cliente -->> IU: Exibir mensagem para preencher os campos em branco()
+    end
+```
+
 
 ## Requisitos Funcionais
 
