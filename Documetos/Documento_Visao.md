@@ -126,6 +126,41 @@ sequenceDiagram
 
 ## Diagrama de Sequência – Manter cliente – Alterar
 
+sequenceDiagram
+    autonumber
+
+    actor Gerente as "Gerente"
+    participant IU as "Interface com usuário (Cliente)"
+    participant Cliente as "Cliente"
+
+    %% Bloco ALT principal
+    alt Alterar Cliente
+
+        %% Bloco OPT + REF com caixa laranja
+        opt Verificar se o Cliente Já Existe no Sistema
+            box "Manter cliente - consultar" #f4a460
+                note right of IU: ref
+                IU -> IU: consulta()
+            end
+        end
+
+        %% Fluxo principal
+        Gerente ->> IU: 1: Escolher qual informação do cliente alterar()
+        IU ->> Cliente: 1.1: alterar_cliente(cliente)()
+
+        %% Bloco ALT interno (validação)
+        alt Campos válidos
+            Cliente -->> IU: Cliente alterando com sucesso()
+        else Campos inválidos
+            Cliente -->> IU: Exibir mensagem para preencher os campos em branco()
+        end
+
+    end
+
+    %% Fim das lifelines
+    destroy Gerente
+    destroy IU
+    destroy Cliente
 
 
 
