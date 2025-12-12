@@ -148,6 +148,7 @@ sequenceDiagram
 
 ## Diagrama de Sequência – Manter cliente – Consultar
 
+```mermaid
 sequenceDiagram
     autonumber
 
@@ -165,6 +166,8 @@ sequenceDiagram
         Cliente -->> IU: Mensagem de cliente inexistente
         IU -->> Gerente: Mensagem de cliente inexistente
     end
+```
+
 
 
 
