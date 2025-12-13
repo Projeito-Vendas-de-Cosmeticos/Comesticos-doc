@@ -241,7 +241,7 @@ sequenceDiagram
     else Erro ao gerar cobrança
         Cobranca -->> IU: Erro ao gerar cobrança
     end
-
+```
 
 ## Requisitos Funcionais
 
