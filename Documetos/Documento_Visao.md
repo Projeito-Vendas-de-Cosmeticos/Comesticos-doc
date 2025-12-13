@@ -204,52 +204,6 @@ sequenceDiagram
 
 ## Diagrama de Sequência – Realizar Venda
 
-```mermaid
-sequenceDiagram
-    title Diagrama de Sequência - Realizar venda
-
-    actor Gerente
-    participant IU as Interface_Usuario
-    participant Cliente
-    participant Venda
-    participant ItemVenda
-    participant Produto
-    participant Cobranca
-
-    Gerente ->> IU: 1. solicitarVenda(cpf, itens)
-
-    rect rgb(255,204,153)
-        note over IU,Cliente: Manter cliente - consultar
-        IU ->> Cliente: Consultar cliente
-        Cliente -->> IU: Cliente encontrado
-    end
-
-    loop Enquanto houver itens a adicionar na venda
-        IU ->> Produto: 2. adicionar_produto(produto)
-
-        rect rgb(255,255,204)
-            note over Produto,ItemVenda: Manter produto - consultar
-            IU ->> ItemVenda: 2.1 cadastrar_item(item_venda)
-            ItemVenda -->> IU: item adicionado com sucesso
-        end
-
-        alt Item não adicionado
-            Produto -->> IU: 3. item inexistente
-            IU -->> Gerente: 4. item inexistente
-        end
-    end
-
-    Gerente ->> IU: 5. confirmar_venda()
-    IU ->> Venda: 6. cadastrar_venda(venda)
-
-    alt Se gerar cobrança
-        Venda ->> Cobranca: 6.1 gerar_cobranca(cobranca)
-        Cobranca -->> Venda: cobrança gerada com sucesso
-        Venda -->> IU: Venda cadastrada com sucesso
-    else Erro na cobrança
-        Cobranca -->> IU: 7. Erro ao gerar cobrança
-    end
-```
 
 
 ## Requisitos Funcionais
