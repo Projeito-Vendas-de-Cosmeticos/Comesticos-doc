@@ -202,8 +202,9 @@ sequenceDiagram
     IU -->> Gerente: Cliente excluído com sucesso
 ```
 
-## Diagrama de Sequência - Realizar venda
+## Diagrama de Sequência – Realizar Venda
 
+```mermaid
 sequenceDiagram
     actor Gerente
     participant IU as Interface_Usuario
