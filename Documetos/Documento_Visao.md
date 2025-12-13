@@ -204,8 +204,9 @@ sequenceDiagram
 
 ## Diagrama de Sequência – Realizar Venda
 
-```mermaid
 sequenceDiagram
+    title Diagrama de Sequência - Realizar venda
+
     actor Gerente
     participant IU as Interface_Usuario
     participant Cliente
@@ -214,34 +215,43 @@ sequenceDiagram
     participant Produto
     participant Cobranca
 
-    Gerente ->> IU: Solicitar venda (CPF, itens)
+    Gerente ->> IU: 1. solicitarVenda(cpf, itens)
 
-    opt Manter cliente - consultar
+    %% Ref: Manter cliente - consultar
+    rect rgb(255, 204, 153)
+        note over IU,Cliente: Manter cliente - consultar
         IU ->> Cliente: Consultar cliente
         Cliente -->> IU: Cliente encontrado
     end
 
-    loop Enquanto houver itens para adicionar
-        IU ->> Produto: Consultar produto
-        alt Produto disponível
-            IU ->> ItemVenda: Cadastrar item da venda
-            ItemVenda -->> IU: Item adicionado com sucesso
-        else Produto inexistente
-            Produto -->> IU: Item inexistente
+    %% Loop de itens
+    loop Enquanto houver itens a adicionar na venda
+        IU ->> Produto: 2. adicionar_produto(produto)
+
+        %% Ref: Manter produto - consultar
+        rect rgb(255, 255, 204)
+            note over Produto,ItemVenda: Manter produto - consultar
+            IU ->> ItemVenda: 2.1 cadastrar_item(item_venda)
+            ItemVenda -->> IU: item adicionado com sucesso
+        end
+
+        alt Item não adicionado
+            Produto -->> IU: 3. item inexistente
+            IU -->> Gerente: 4. item inexistente
         end
     end
 
-    Gerente ->> IU: Confirmar venda
-    IU ->> Venda: Cadastrar venda
+    Gerente ->> IU: 5. confirmar_venda()
+    IU ->> Venda: 6. cadastrar_venda(venda)
 
-    alt Gerar cobrança com sucesso
-        Venda ->> Cobranca: Gerar cobrança
-        Cobranca -->> Venda: Cobrança gerada
+    alt Se gerar cobrança e cadastrar a venda
+        Venda ->> Cobranca: 6.1 gerar_cobranca(cobranca)
+        Cobranca -->> Venda: cobrança gerada com sucesso
         Venda -->> IU: Venda cadastrada com sucesso
-    else Erro ao gerar cobrança
-        Cobranca -->> IU: Erro ao gerar cobrança
+    else Se não gerar cobrança
+        Cobranca -->> IU: 7. Erro ao gerar cobrança()
     end
-```
+
 
 ## Requisitos Funcionais
 
