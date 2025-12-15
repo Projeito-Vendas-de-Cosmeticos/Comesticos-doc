@@ -241,7 +241,7 @@ sequenceDiagram
     Gerente ->> IU: 5. confirmar venda()
     IU ->> Venda: 6. cadastrar_venda(venda:Venda)
 
-    Venda ->> IU: Cobranca: 6.1 gerar_cobranca(cobranca:Cobrança)
+    Venda -->>  Cobranca: 6.1 gerar_cobranca(cobranca:Cobrança)
 
     alt Se gerar cobrança e cadastrar venda
         Cobranca -->> Venda: cobrança gerada com sucesso
