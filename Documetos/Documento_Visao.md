@@ -221,7 +221,7 @@ sequenceDiagram
     end
 
     loop Enquanto houver itens a adicionar na venda
-        IU ->> Venda: 2. adicionar_produto(produto)
+        IU ->> Venda: 2. adicionar_produto(produto:Produto)
 
         rect rgb(255,255,180)
             note over Venda,Produto: Manter produto - consultar
@@ -233,15 +233,15 @@ sequenceDiagram
             ItemVenda -->> Venda: item adicionado com sucesso
             Venda -->> IU: itens adicionados com sucesso
         else Se item não adicionado
-            ItemVenda -->> Venda: 3. item inexistente
-            Venda -->> IU: 4. item inexistente
+            ItemVenda -->> Venda: 3. item inexistente()
+            Venda -->> IU: 4. item inexistente()
         end
     end
 
     Gerente ->> IU: 5. confirmar venda()
-    IU ->> Venda: 6. cadastrar_venda(venda)
+    IU ->> Venda: 6. cadastrar_venda(venda:Venda)
 
-    Venda ->> Cobranca: 6.1 gerar_cobranca(cobranca)
+    Venda ->> Cobranca: 6.1 gerar_cobranca(cobranca:Cobrança)
 
     alt Se gerar cobrança e cadastrar venda
         Cobranca -->> Venda: cobrança gerada com sucesso
