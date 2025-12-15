@@ -234,7 +234,7 @@ sequenceDiagram
             Venda -->> IU: itens adicionados com sucesso
         else Se item não adicionado
             ItemVenda -->> Venda: 3. item inexistente()
-            Venda -->> IU: 4. item inexistente()
+            Venda ->> IU: 4. item inexistente()
         end
     end
 
