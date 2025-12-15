@@ -204,15 +204,18 @@ sequenceDiagram
 
 ## Diagrama de Sequência – Realizar Venda
 
-```mermaid
 sequenceDiagram
     actor Gerente
     participant IU as Interface_Usuario
     participant Cliente
     participant Venda
     participant ItemVenda
+    participant Produto
+    participant Cobranca
 
-    rect rgb(255,204,153)
+    Gerente ->> IU: 1. solicitarVenda(cpf, itens)
+
+    rect rgb(255,200,120)
         note over IU,ItemVenda: Manter cliente - consultar
         IU ->> Cliente: consultarCliente()
         Cliente -->> IU: cliente encontrado
@@ -247,7 +250,6 @@ sequenceDiagram
     else Se não gerar cobrança
         Cobranca -->> Venda: 7. erro ao gerar cobrança
     end
-```
 
 
 ## Requisitos Funcionais
