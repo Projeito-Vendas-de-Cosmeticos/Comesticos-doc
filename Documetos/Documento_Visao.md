@@ -211,14 +211,12 @@ sequenceDiagram
     participant Cliente
     participant Venda
     participant ItemVenda
-    participant Produto
-    participant Cobranca
 
-    Gerente ->> IU: 1. solicitarVenda(cpf, itens)
-
-    rect rgb(255,200,120)
-    note over IU,Cliente,Venda,ItemVenda: Manter cliente - consultar
-end
+    rect rgb(255,204,153)
+        note over IU,ItemVenda: Manter cliente - consultar
+        IU ->> Cliente: consultarCliente()
+        Cliente -->> IU: cliente encontrado
+    end
 
     loop Enquanto houver itens a adicionar na venda
         IU ->> Venda: 2. adicionar_produto(produto)
