@@ -218,8 +218,6 @@ sequenceDiagram
 
     rect rgb(255,200,120)
         note over IU,ItemVenda: Manter cliente - consultar
-        IU ->> Cliente: consultarCliente()
-        Cliente -->> IU: cliente encontrado
     end
 
     loop Enquanto houver itens a adicionar na venda
