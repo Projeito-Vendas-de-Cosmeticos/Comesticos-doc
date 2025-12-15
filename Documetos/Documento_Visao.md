@@ -227,7 +227,7 @@ sequenceDiagram
             note over Venda,Produto: Manter produto - consultar
         end
 
-        Venda ->> ItemVenda: 2.1 cadastrar_item(item_venda)
+        Venda ->> ItemVenda: 2.1 cadastrar_item(item_venda:Item_venda)
 
         alt Se item adicionado
             ItemVenda -->> Venda: item adicionado com sucesso
