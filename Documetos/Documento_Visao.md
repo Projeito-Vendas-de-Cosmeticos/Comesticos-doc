@@ -247,7 +247,7 @@ sequenceDiagram
         Cobranca -->> Venda: cobrança gerada com sucesso
         Venda -->> IU: venda cadastrada com sucesso
     else Se não gerar cobrança
-        Cobranca -->> Venda: 7. erro ao gerar cobrança
+        Cobranca ->> Venda: 7. erro ao gerar cobrança
     end
 ```
 
