@@ -217,8 +217,8 @@ sequenceDiagram
     Gerente ->> IU: 1. solicitarVenda(cpf, itens)
 
     rect rgb(255,200,120)
-        note over IU,Cliente: Manter cliente - consultar
-    end
+    note over IU,Cliente,Venda,ItemVenda: Manter cliente - consultar
+end
 
     loop Enquanto houver itens a adicionar na venda
         IU ->> Venda: 2. adicionar_produto(produto)
