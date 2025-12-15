@@ -204,6 +204,7 @@ sequenceDiagram
 
 ## Diagrama de Sequência – Realizar Venda
 
+```mermaid
 sequenceDiagram
     actor Gerente
     participant IU as Interface_Usuario
@@ -250,6 +251,7 @@ sequenceDiagram
     else Se não gerar cobrança
         Cobranca -->> Venda: 7. erro ao gerar cobrança
     end
+```
 
 
 ## Requisitos Funcionais
