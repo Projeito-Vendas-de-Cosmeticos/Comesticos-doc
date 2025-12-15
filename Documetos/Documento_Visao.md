@@ -203,6 +203,50 @@ sequenceDiagram
 ```
 
 ## Diagrama de Sequência – Realizar Venda
+sequenceDiagram
+    actor Gerente
+    participant IU as Interface_Usuario
+    participant Cliente
+    participant Venda
+    participant ItemVenda
+    participant Produto
+    participant Cobranca
+
+    Gerente ->> IU: 1. solicitarVenda(cpf, itens)
+
+    rect rgb(255,200,120)
+        note over IU,Cliente: Manter cliente - consultar
+    end
+
+    loop Enquanto houver itens a adicionar na venda
+        IU ->> Venda: 2. adicionar_produto(produto)
+
+        rect rgb(255,255,180)
+            note over Venda,Produto: Manter produto - consultar
+        end
+
+        Venda ->> ItemVenda: 2.1 cadastrar_item(item_venda)
+
+        alt Se item adicionado
+            ItemVenda -->> Venda: item adicionado com sucesso
+            Venda -->> IU: itens adicionados com sucesso
+        else Se item não adicionado
+            ItemVenda -->> Venda: 3. item inexistente
+            Venda -->> IU: 4. item inexistente
+        end
+    end
+
+    Gerente ->> IU: 5. confirmar venda()
+    IU ->> Venda: 6. cadastrar_venda(venda)
+
+    Venda ->> Cobranca: 6.1 gerar_cobranca(cobranca)
+
+    alt Se gerar cobrança e cadastrar venda
+        Cobranca -->> Venda: cobrança gerada com sucesso
+        Venda -->> IU: venda cadastrada com sucesso
+    else Se não gerar cobrança
+        Cobranca -->> Venda: 7. erro ao gerar cobrança
+    end
 
 
 
